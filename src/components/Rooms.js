@@ -19,12 +19,14 @@ class Rooms extends Component {
         });
     }
 
+ 
+
     render() {
         return(
         <ul className="rooms">
             {
                 this.state.rooms.map((room, index) =>
-                    <li className="room" key={index}> {this.room.name} </li>
+                    <li className="room" key={index}> {room.name} </li>
                 )
             }
         </ul>
