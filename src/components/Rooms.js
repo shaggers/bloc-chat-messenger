@@ -19,17 +19,36 @@ class Rooms extends Component {
         });
     }
 
- 
+    addItem(e){
+        e.preventDefault();
+
+        const newRoom = this.newItem.value;
+        if (newRoom === '') {return};
+        this.roomsRef.push({
+            name: newRoom
+          });
+
+        this.addForm.reset();
+    }
 
     render() {
         return(
-        <ul className="rooms">
-            {
-                this.state.rooms.map((room, index) =>
-                    <li className="room" key={index}> {room.name} </li>
-                )
-            }
-        </ul>
+            <span>
+                <form ref={(input) => {this.addForm = input}} className="newItem" onSubmit={(e) => {this.addItem(e)}}>
+                    <div className="formGroup">
+                        <label htmlFor="newItemInput">Add New Room</label>
+                        <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newItemInput"></input>
+                    </div>
+                        <button type="submit" className="submitAddedItem">Add</button>
+                </form>
+                <ul className="rooms">
+                    {
+                        this.state.rooms.map((room, index) =>
+                            <li className="room" key={index}> {room.name} </li>
+                        )
+                    }
+                </ul>
+            </span>
         )
     }
 }
