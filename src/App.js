@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 import Rooms from './components/Rooms';
+import MessageList from './components/MessageList';
 
 var config = {
   apiKey: "AIzaSyCBxhUrobjhX7UGwqtvPMjWPsd0qoK0tvc",
@@ -22,6 +23,7 @@ class App extends Component {
         </header>
         <main>
           <Rooms firebase={firebase}/>
+          <MessageList firebase={firebase}/>
         </main>
       </div>
     );
