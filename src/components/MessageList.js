@@ -15,7 +15,7 @@ class MessageList extends Component {
         this.roomsRef.on('child_added', snapshot => {
             const room = snapshot.val();
             room.key = snapshot.key;
-            this.setState({ messages : this.state.rooms.concat( room ) })
+            this.setState({ messages : this.state.messages.concat( room ) })
         });
     }
 

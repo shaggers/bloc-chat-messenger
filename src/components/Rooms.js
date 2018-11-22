@@ -31,23 +31,32 @@ class Rooms extends Component {
         this.addForm.reset();
     }
 
+    handleClick(item) {
+        this.props.callbackFromParent(item);
+    }
+
     render() {
         return(
             <span>
+
                 <form ref={(input) => {this.addForm = input}} className="newItem" onSubmit={(e) => {this.addItem(e)}}>
+                    
                     <div className="formGroup">
                         <label htmlFor="newItemInput">Add New Room</label>
                         <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newItemInput"></input>
                     </div>
-                        <button type="submit" className="submitAddedItem">Add</button>
+                    
+                    <button type="submit" className="submitAddedItem">Add</button>
                 </form>
+
                 <ul className="rooms">
                     {
                         this.state.rooms.map((room, index) =>
-                            <li className="room" key={index}> {room.name} </li>
+                            <li className="room" key={index} onClick={() => this.handleClick(room)}> {room.name} </li>
                         )
                     }
                 </ul>
+
             </span>
         )
     }

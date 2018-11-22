@@ -15,6 +15,21 @@ var config = {
 firebase.initializeApp(config);
 
 class App extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      currentRoom: {}
+    }
+
+  }
+
+  selectedRoom(value) {
+    console.log(value); 
+    this.setState({ currentRoom: value });
+    console.log(this.state.currentRoom);   
+  }
+
   render() {
     return (
       <div className="App">
@@ -22,8 +37,13 @@ class App extends Component {
           <h1>Chat Messenger</h1>
         </header>
         <main>
-          <Rooms firebase={firebase}/>
-          <MessageList firebase={firebase}/>
+          <Rooms 
+            firebase={firebase}
+            callbackFromParent={this.selectedRoom}
+          />
+          <MessageList 
+            firebase={firebase}
+          />
         </main>
       </div>
     );
