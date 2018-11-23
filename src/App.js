@@ -22,12 +22,12 @@ class App extends Component {
       currentRoom: {}
     }
 
+    this.selectedRoom = this.selectedRoom.bind(this);
   }
 
   selectedRoom(value) {
-    console.log(value); 
-    this.setState({ currentRoom: value });
-    console.log(this.state.currentRoom);   
+    this.setState({ currentRoom: value });  
+    console.log(this.state.currentRoom);
   }
 
   render() {

@@ -22,7 +22,7 @@ class MessageList extends Component {
     render(){
         return(
             <span>
-                {console.log(this.state.messages)}
+                
             </span>
         )
     }
