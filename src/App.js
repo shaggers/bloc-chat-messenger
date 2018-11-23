@@ -21,13 +21,11 @@ class App extends Component {
     this.state = {
       currentRoom: {}
     }
-
-    this.selectedRoom = this.selectedRoom.bind(this);
+    
   }
 
   selectedRoom(value) {
     this.setState({ currentRoom: value });  
-    console.log(this.state.currentRoom);
   }
 
   render() {
@@ -39,10 +37,11 @@ class App extends Component {
         <main>
           <Rooms 
             firebase={firebase}
-            callbackFromParent={this.selectedRoom}
+            callbackFromParent={this.selectedRoom.bind(this)}
           />
           <MessageList 
             firebase={firebase}
+            currentRoom={this.state.currentRoom}
           />
         </main>
       </div>

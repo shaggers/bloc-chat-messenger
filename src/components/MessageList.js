@@ -8,22 +8,30 @@ class MessageList extends Component {
             messages: []
         }
 
-        this.roomsRef = this.props.firebase.database().ref('rooms');
+        this.messagesRef = this.props.firebase.database().ref('messages');
     }
 
     componentDidMount() {
-        this.roomsRef.on('child_added', snapshot => {
-            const room = snapshot.val();
-            room.key = snapshot.key;
-            this.setState({ messages : this.state.messages.concat( room ) })
+        this.messagesRef.on('child_added', snapshot => {
+            const message = snapshot.val();
+            message.key = snapshot.key;
+            this.setState({ messages : this.state.messages.concat( message ) });
         });
     }
 
     render(){
         return(
-            <span>
-                
-            </span>
+                <ul>
+                    {
+                        this.state.messages.map((message, index) => 
+                                this.props.currentRoom.key == message.roomId && 
+                                <li>
+                                    {message.content}
+                                </li>
+                            
+                        )
+                    }
+                </ul>
         )
     }
 }
