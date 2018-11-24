@@ -3,6 +3,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import Rooms from './components/Rooms';
 import MessageList from './components/MessageList';
+import User from './components/User';
 
 var config = {
   apiKey: "AIzaSyCBxhUrobjhX7UGwqtvPMjWPsd0qoK0tvc",
@@ -19,13 +20,18 @@ class App extends Component {
     super(props)
 
     this.state = {
-      currentRoom: {}
+      currentRoom: {},
+      user: ''
     }
     
   }
 
   selectedRoom(value) {
     this.setState({ currentRoom: value });  
+  }
+
+  getUser(name) {
+    this.setState({ user: name })
   }
 
   render() {
@@ -35,6 +41,10 @@ class App extends Component {
           <h1>Chat Messenger</h1>
         </header>
         <main>
+          <User 
+            firebase={firebase}
+            callbackFromParent={this.getUser.bind(this)}
+          />
           <Rooms 
             firebase={firebase}
             callbackFromParent={this.selectedRoom.bind(this)}
