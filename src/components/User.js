@@ -11,24 +11,29 @@ class User extends Component {
 
     handleSignIn() {
         const provider = new this.props.firebase.auth.GoogleAuthProvider();
-        this.props.firebase.auth().signInWithPopup( provider ).then(function(result) {
-            const user = result.user.displayName;
-            this.props.callbackFromParent(user);
-        }).catch(function(error){
-            const errorMessage = error.message;
-            alert(errorMessage);
-        })
+        this.props.firebase.auth().signInWithPopup( provider );
     }
 
     handleSignOut() {
         this.props.firebase.auth().signOut();
     }
 
+    componentDidMount() {
+        this.props.firebase.auth().onAuthStateChanged( user => {
+            this.props.setUser(user);
+          });
+    }
+
     render() {
         return(
             <span>
-                <button onClick={() => this.handleSignIn()}>Sign In</button>
-                <button onClick={() => this.handleSignOut()}>Sign Out</button>
+                { this.props.user === null &&
+                <span><button onClick={() => this.handleSignIn()}>Sign In</button>
+                <p>Signed in as Guest</p></span> }
+                { this.props.user !== null &&
+                <span><button onClick={() => this.handleSignOut()}>Sign Out</button>
+                <p>Signed in as {this.props.user.displayName}</p></span> }
+                
             </span>
         )
     }

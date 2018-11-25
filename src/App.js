@@ -30,8 +30,8 @@ class App extends Component {
     this.setState({ currentRoom: value });  
   }
 
-  getUser(name) {
-    this.setState({ user: name })
+  setUser(name) {
+    this.setState({ user: name });
   }
 
   render() {
@@ -43,7 +43,8 @@ class App extends Component {
         <main>
           <User 
             firebase={firebase}
-            callbackFromParent={this.getUser.bind(this)}
+            setUser={this.setUser.bind(this)}
+            user={this.state.user}
           />
           <Rooms 
             firebase={firebase}
