@@ -20,18 +20,24 @@ class App extends Component {
     super(props)
 
     this.state = {
-      currentRoom: {},
+      currentRoom: '',
+      currentRoomKey: '',
       user: ''
     }
     
   }
 
   selectedRoom(value) {
-    this.setState({ currentRoom: value });  
+    this.setState({ currentRoom: value.name });
+    this.setState({ currentRoomKey: value.key })  
   }
 
   setUser(name) {
-    this.setState({ user: name });
+    if (name == null){
+      this.setState({ user: '' })
+    } else {
+      this.setState({ user: name.displayName });
+    }  
   }
 
   render() {
@@ -53,6 +59,8 @@ class App extends Component {
           <MessageList 
             firebase={firebase}
             currentRoom={this.state.currentRoom}
+            currentRoomKey={this.state.currentRoomKey}
+            user={this.state.user}
           />
         </main>
       </div>

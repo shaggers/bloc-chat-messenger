@@ -19,7 +19,7 @@ class Rooms extends Component {
         });
     }
 
-    addItem(e){
+    addItem(e) {
         e.preventDefault();
 
         const newRoom = this.newItem.value;

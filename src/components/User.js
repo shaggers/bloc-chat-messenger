@@ -27,13 +27,20 @@ class User extends Component {
     render() {
         return(
             <span>
-                { this.props.user === null &&
-                <span><button onClick={() => this.handleSignIn()}>Sign In</button>
-                <p>Signed in as Guest</p></span> }
-                { this.props.user !== null &&
-                <span><button onClick={() => this.handleSignOut()}>Sign Out</button>
-                <p>Signed in as {this.props.user.displayName}</p></span> }
-                
+                { 
+                    this.props.user == '' &&
+                        <span>
+                            <button onClick={() => this.handleSignIn()}>Sign In</button>
+                            <p>Signed in as Guest</p>
+                        </span> 
+                }
+                { 
+                    this.props.user != '' &&
+                        <span>
+                            <button onClick={() => this.handleSignOut()}>Sign Out</button>
+                            <p>Signed in as {this.props.user}</p>
+                        </span> 
+                }          
             </span>
         )
     }
