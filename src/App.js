@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import Rooms from './components/Rooms';
 import MessageList from './components/MessageList';
 import User from './components/User';
+import './style/app.css'
 
 var config = {
   apiKey: "AIzaSyCBxhUrobjhX7UGwqtvPMjWPsd0qoK0tvc",
@@ -43,25 +44,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Chat Messenger</h1>
-        </header>
-        <main>
+        <nav className="navbar fixed-top navbar-dark bg-dark">
+          <h1 className="navbar-brand mb-0 h1">Chat Messenger</h1>
+        
           <User 
             firebase={firebase}
             setUser={this.setUser.bind(this)}
             user={this.state.user}
           />
-          <Rooms 
-            firebase={firebase}
-            callbackFromParent={this.selectedRoom.bind(this)}
-          />
-          <MessageList 
-            firebase={firebase}
-            currentRoom={this.state.currentRoom}
-            currentRoomKey={this.state.currentRoomKey}
-            user={this.state.user}
-          />
+        </nav>
+        <main className="container">
+          <div className="row">
+            <div className="col-4">
+              <Rooms 
+                firebase={firebase}
+                callbackFromParent={this.selectedRoom.bind(this)}
+              />
+            </div>
+            <div className="col-8">
+              <MessageList 
+                firebase={firebase}
+                currentRoom={this.state.currentRoom}
+                currentRoomKey={this.state.currentRoomKey}
+                user={this.state.user}
+              />
+            </div>
+          </div>
         </main>
       </div>
     );

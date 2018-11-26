@@ -1,0 +1,21 @@
+main {
+    margin-top: 100px;
+    margin-bottom: 175px;
+}
+
+.navbar-text{
+    margin-right: 15px;
+}
+
+body{
+    color: #b380ff;
+    background-color:#3d3d5c;
+}
+
+.form-control {
+    background-color: black;
+}
+
+.list-group-item  {
+      background-color: black;
+  }

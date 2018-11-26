@@ -29,16 +29,16 @@ class User extends Component {
             <span>
                 { 
                     this.props.user == '' &&
-                        <span>
-                            <button onClick={() => this.handleSignIn()}>Sign In</button>
-                            <p>Signed in as Guest</p>
-                        </span> 
+                        <span className="form-inline">
+                            <p className="navbar-text">Signed in as Guest</p>
+                            <button className="btn btn-outline-success" onClick={() => this.handleSignIn()}>Sign In</button>
+                        </span>
                 }
                 { 
                     this.props.user != '' &&
                         <span>
-                            <button onClick={() => this.handleSignOut()}>Sign Out</button>
-                            <p>Signed in as {this.props.user}</p>
+                            <p className="navbar-text">Signed in as {this.props.user}</p>
+                            <button className="btn btn-outline-danger" onClick={() => this.handleSignOut()}>Sign Out</button>
                         </span> 
                 }          
             </span>

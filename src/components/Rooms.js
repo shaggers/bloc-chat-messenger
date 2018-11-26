@@ -39,20 +39,20 @@ class Rooms extends Component {
         return(
             <span>
 
-                <form ref={(input) => {this.addForm = input}} className="newItem" onSubmit={(e) => {this.addItem(e)}}>
+                <form ref={(input) => {this.addForm = input}} className="form-control" onSubmit={(e) => {this.addItem(e)}}>
                     
-                    <div className="formGroup">
+                    <div className="form-group">
                         <label htmlFor="newItemInput">Add New Room</label>
-                        <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newItemInput"></input>
+                        <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newItemInput" className="form-control"></input>
                     </div>
                     
-                    <button type="submit" className="submitAddedItem">Add</button>
+                    <button type="submit" className="btn btn-primary">Add</button>
                 </form>
 
-                <ul className="rooms">
+                <ul className="list-group">
                     {
                         this.state.rooms.map((room, index) =>
-                            <li className="room" key={index} onClick={() => this.handleClick(room)}> {room.name} </li>
+                            <li className="list-group-item" key={index} onClick={() => this.handleClick(room)}> <h5>{room.name}</h5> </li>
                         )
                     }
                 </ul>

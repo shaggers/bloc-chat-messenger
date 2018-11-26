@@ -59,26 +59,26 @@ class MessageList extends Component {
                     <h2>{this.props.currentRoom}</h2>
                 }
                         
-                <ul>
+                <ul className="list-group">
                     {
                         this.state.messages.map((message, index) => 
                                 this.props.currentRoomKey == message.roomId && 
-                                <li>
-                                    <p>{message.username}</p>
+                                <li className="list-group-item">
+                                    <p><b>{message.username}</b></p>
                                     <p>{message.content}</p>
-                                    <p>{message.sentAt}</p>
+                                    <small>{message.sentAt}</small>
                                 </li>
                         )
                     }
                 </ul>
 
-                <form ref={(input) => {this.addForm = input}} className="newItem" onSubmit={(e) => {this.addItem(e)}}>
-                    <div>
+                <form ref={(input) => {this.addForm = input}} className="form-control fixed-bottom" onSubmit={(e) => {this.addItem(e)}}>
+                    <div className="form-group">
                         <label htmlFor="newMessageInput">New Message</label>
-                        <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newMessageInput"></input>
+                        <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newMessageInput" className="form-control"></input>
                     </div>
 
-                    <button type="submit" className="submitAddedItem">Send</button>
+                    <button type="submit" className="btn btn-primary">Send</button>
                 </form>
 
             </span>
