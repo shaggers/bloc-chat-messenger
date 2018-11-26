@@ -52,35 +52,39 @@ class MessageList extends Component {
             <span>
                 { 
                     this.props.currentRoom == '' &&
-                    <h2>Select Conversation</h2> 
+                    <h2 className="border border-secondary">Select Conversation</h2> 
                 }
                 { 
                     this.props.currentRoom != '' &&
-                    <h2>{this.props.currentRoom}</h2>
+                    <h2 className="border border-secondary">{this.props.currentRoom}</h2>
                 }
                         
                 <ul className="list-group">
                     {
                         this.state.messages.map((message, index) => 
                                 this.props.currentRoomKey == message.roomId && 
-                                <li className="list-group-item">
-                                    <p><b>{message.username}</b></p>
-                                    <p>{message.content}</p>
-                                    <small>{message.sentAt}</small>
+                                <li className="list-group-item bg-dark">
+                                    <p className="text-left float-left"><b>{message.username}</b></p>
+                                    <p className="text-right"><small>{message.sentAt}</small></p>
+                                    <p className="text-left">{message.content}</p>  
                                 </li>
                         )
                     }
                 </ul>
 
-                <form ref={(input) => {this.addForm = input}} className="form-control fixed-bottom" onSubmit={(e) => {this.addItem(e)}}>
-                    <div className="form-group">
-                        <label htmlFor="newMessageInput">New Message</label>
-                        <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newMessageInput" className="form-control"></input>
-                    </div>
-
-                    <button type="submit" className="btn btn-primary">Send</button>
+                { this.props.currentRoom !== '' && 
+                <form ref={(input) => {this.addForm = input}} className="form-control fixed-bottom bg-dark border-secondary w-100 mx-auto" onSubmit={(e) => {this.addItem(e)}}>
+                        <label htmlFor="newMessageInput" className="text-secondary">New Message</label>
+                    <div className="form-row">
+                        <div className="col-10">
+                            <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newMessageInput" className="form-control"></input>
+                        </div>
+                        <div className="col-2">
+                            <button type="submit" className="btn btn-outline-info btn-block">Send</button>
+                        </div>
+                    </div>     
                 </form>
-
+                }
             </span>
         )
     }

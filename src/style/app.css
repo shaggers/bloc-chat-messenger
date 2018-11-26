@@ -8,14 +8,11 @@ main {
 }
 
 body{
-    color: #b380ff;
+    color: #9494b8;
     background-color:#3d3d5c;
 }
 
-.form-control {
-    background-color: black;
+.navbar-text {
+    margin-top: 10px;
 }
 
-.list-group-item  {
-      background-color: black;
-  }

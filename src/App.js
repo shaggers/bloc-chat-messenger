@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar fixed-top navbar-dark bg-dark">
-          <h1 className="navbar-brand mb-0 h1">Chat Messenger</h1>
+          <h1 className="navbar-brand mb-1 h1 text-info">Chat Messenger</h1>
         
           <User 
             firebase={firebase}
