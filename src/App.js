@@ -7,12 +7,12 @@ import User from './components/User';
 import './style/app.css'
 
 var config = {
-  apiKey: "AIzaSyCBxhUrobjhX7UGwqtvPMjWPsd0qoK0tvc",
-  authDomain: "bloc-chat-messenger-dd4f6.firebaseapp.com",
-  databaseURL: "https://bloc-chat-messenger-dd4f6.firebaseio.com",
-  projectId: "bloc-chat-messenger-dd4f6",
-  storageBucket: "bloc-chat-messenger-dd4f6.appspot.com",
-  messagingSenderId: "1015629588032"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUKCET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 };
 firebase.initializeApp(config);
 
