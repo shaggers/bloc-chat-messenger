@@ -38,15 +38,34 @@ class Rooms extends Component {
     render() {
         return(
             <span>
-
-                <form ref={(input) => {this.addForm = input}} className="form-control bg-dark border-secondary" onSubmit={(e) => {this.addItem(e)}}>
-                        <label htmlFor="newItemInput" className="text-secondary">Add New Room</label>
+                <form 
+                    ref={(input) => {this.addForm = input}} 
+                    className="form-control bg-dark border-secondary" 
+                    onSubmit={(e) => {this.addItem(e)}}
+                >
+                    <label 
+                        htmlFor="newItemInput" 
+                        className="text-secondary"
+                    >
+                        Add New Room
+                    </label>
                     <div className="form-row">
                         <div className="col-8">
-                            <input ref={(input) => {this.newItem = input}} type="text" placeholder="text" id="newItemInput" className="form-control"></input>
+                            <input 
+                                ref={(input) => {this.newItem = input}} 
+                                type="text" 
+                                placeholder="text" 
+                                id="newItemInput" 
+                                className="form-control"
+                            ></input>
                         </div>
                         <div className="col-4">
-                            <button type="submit" className="btn btn-outline-light btn-block">Add</button>
+                            <button 
+                                type="submit" 
+                                className="btn btn-outline-light btn-block"
+                            >
+                                Add
+                            </button>
                         </div>
                     </div>              
                 </form>
@@ -54,11 +73,16 @@ class Rooms extends Component {
                 <ul className="list-group">
                     {
                         this.state.rooms.map((room, index) =>
-                            <li className="list-group-item bg-dark" key={index} onClick={() => this.handleClick(room)}> <h5>{room.name}</h5> </li>
+                            <li 
+                                className="list-group-item bg-dark" 
+                                key={index} 
+                                onClick={() => this.handleClick(room)}
+                            > 
+                                <h5>{room.name}</h5> 
+                            </li>
                         )
                     }
                 </ul>
-
             </span>
         )
     }

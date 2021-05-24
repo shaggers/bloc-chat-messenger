@@ -45,7 +45,9 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar fixed-top navbar-dark bg-dark">
-          <h1 className="navbar-brand mb-1 h1 text-info">Chat Messenger</h1>
+          <h1 className="navbar-brand mb-1 h1 text-info">
+            Chat Messenger
+          </h1>
         
           <User 
             firebase={firebase}
@@ -55,13 +57,13 @@ class App extends Component {
         </nav>
         <main className="container">
           <div className="row">
-            <div className="col-4">
+            <div className="col-sm-4">
               <Rooms 
                 firebase={firebase}
                 callbackFromParent={this.selectedRoom.bind(this)}
               />
             </div>
-            <div className="col-8">
+            <div className="col-sm-8">
               <MessageList 
                 firebase={firebase}
                 currentRoom={this.state.currentRoom}

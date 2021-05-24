@@ -1,6 +1,29 @@
 main {
-    margin-top: 100px;
     margin-bottom: 175px;
+}
+
+@media only screen and (max-width: 550px) {
+    main {
+        margin-top: 40%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    main {
+        margin-top: 20%;
+    }
+}
+
+@media only screen and (min-width: 551px) {
+    main {
+        margin-top: 15%;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    main {
+        margin-top: 10%;
+    }
 }
 
 .navbar-text{
